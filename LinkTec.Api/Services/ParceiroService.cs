@@ -4,6 +4,7 @@ using LinkTec.Api.Interfaces;
 using LinkTec.Api.Models;
 using LinkTec.Api.Models.Validations;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,6 +40,12 @@ namespace LinkTec.Api.Services
 
             var valid = validator.Validate(parceiro);
 
+            var parceiroAtualizar = await _parceiroRepository.ObterPorId(parceiroId);
+
+            parceiroAtualizar.Nome = parceiro.Nome;
+            parceiroAtualizar.Documento = parceiro.Documento;
+            parceiroAtualizar.FormaPagamento = parceiro.FormaPagamentoAceita;
+
             if (!valid.IsValid)
             {
                 foreach (var erro in valid.Errors)
@@ -46,7 +53,7 @@ namespace LinkTec.Api.Services
                 return;
             }
 
-            await _parceiroRepository.Atualizar(ParceiroModel.ToParceiroEntity(parceiro));
+            await _parceiroRepository.Atualizar(parceiroAtualizar);
         }
 
         public async Task InserirParceiro(ParceiroModel parceiro)
@@ -77,18 +84,8 @@ namespace LinkTec.Api.Services
                 }
                 var ofertanteCertificado = new OfertanteCertificado();
 
-
-                byte[] p1 = null;
-                using (var fs1 = parceiro.Ofertante.CertificadoFile.OpenReadStream())
-                using (var ms1 = new MemoryStream())
-                {
-                    fs1.CopyTo(ms1);
-                    p1 = ms1.ToArray();
-                }
-
-                ofertanteCertificado.Imagem = p1;
                 ofertanteCertificado.TipoServico = parceiro.Ofertante.ServicosPrestados;
-                ofertanteCertificado.OfertanteId = id;
+                ofertanteCertificado.ParceiroId = id;
 
                 await _ofertanteCertificadoRepository.Adicionar(ofertanteCertificado);
 
@@ -108,9 +105,21 @@ namespace LinkTec.Api.Services
             var parceiroModel = ParceiroModel.FromParceiroEntity(parceiro);
 
             if (parceiro.TipoParceiro == Enums.ETipoParceiro.Ofertante)
-                parceiroModel.Ofertante = OfertanteCertificadoModel.FromOfertanteCertificadoEntity((await _ofertanteCertificadoRepository.Buscar(p => p.OfertanteId == id)).FirstOrDefault());
+                parceiroModel.Ofertante = OfertanteCertificadoModel.FromOfertanteCertificadoEntity((await _ofertanteCertificadoRepository.Buscar(p => p.ParceiroId == id)).FirstOrDefault());
 
             return parceiroModel;
+        }
+
+        public async Task<IEnumerable<ParceiroModel>> ObterParceirosOfertantes()
+        {   var retorno = new List<ParceiroModel>();
+
+            var parceiros = await _parceiroRepository.Buscar(p => p.TipoParceiro == Enums.ETipoParceiro.Ofertante);
+
+            foreach(var parceiro in parceiros)
+                retorno.Add(ParceiroModel.FromParceiroEntity(parceiro));
+
+            return retorno;
+
         }
     }
 }

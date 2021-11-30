@@ -3,9 +3,9 @@ i:{00000000-0000-0000-0000-000000000000}:LinkTec.Api.sln
 ++LinkTec.Api
 i:{00000000-0000-0000-0000-000000000000}:LinkTec.Api
 ++Connected Services 
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>863
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>861
 ++Dependências
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>862
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>860
 ++Properties
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\properties\
 ++wwwroot
@@ -40,72 +40,137 @@ i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\li
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\
 ++ContatoCliente.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\contatocliente.cs
-++Diploma.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\diploma.cs
+++EmailTemplate.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\emailtemplate.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\emailtemplate.cs
 ++Entity.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\entity.cs
-++Ofertante.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\ofertante.cs
-++OfertanteCurriculo.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\ofertantecurriculo.cs
-++OfertanteExperiencia.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\ofertanteexperiencia.cs
-++OfertanteServico.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\ofertanteservico.cs
-++OrdemDeServico.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\ordemdeservico.cs
-++OrdemDeServicoItem.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\ordemdeservicoitem.cs
+++OfertanteCertificado.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\ofertantecertificado.cs
 ++Parceiro.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\parceiro.cs
+++PropostaSolicitacao.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\propostasolicitacao.cs
 ++SolicitacaoDeServico.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\entities\solicitacaodeservico.cs
 ++Enums
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\enums\
 ++Extensions
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\extensions\
-++AspNetUser.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\extensions\aspnetuser.cs
-++ExceptionMiddlware.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\extensions\exceptionmiddlware.cs
 ++Infrastructure
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\infrastructure\
+++Database
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\infrastructure\database\
+++ApplicationDBContext.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\infrastructure\database\applicationdbcontext.cs
+++ApplicationIdentityDBContext.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\infrastructure\database\applicationidentitydbcontext.cs
 ++Interfaces
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\
+++IContatoClienteRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\icontatoclienterepository.cs
+++IContatoClienteService.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\icontatoclienteservice.cs
+++IEmailService.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iemailservice.cs
+++IEmailTemplateRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iemailtemplaterepository.cs
+++INotificador.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\inotificador.cs
+++IOfertanteCertificadoRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iofertantecertificadorepository.cs
+++IParceiroRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iparceirorepository.cs
+++IParceiroService.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iparceiroservice.cs
+++IPropostaSolicitacaoRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\ipropostasolicitacaorepository.cs
+++IRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\irepository.cs
+++ISolicitacaoDeServicoService.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\isolicitacaodeservicoservice.cs
+++ISolicitacaoServicoRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\isolicitacaoservicorepository.cs
+++IUser.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iuser.cs
 ++Migrations
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\
+++ApplicationIdentityDB
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationidentitydb\
+++20211121162330_inicio.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationidentitydb\20211121162330_inicio.cs
+++ApplicationIdentityDBContextModelSnapshot.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationidentitydb\applicationidentitydbcontextmodelsnapshot.cs
+++20211129220552_inicio.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\20211129220552_inicio.cs
+++ApplicationDBContextModelSnapshot.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationdbcontextmodelsnapshot.cs
 ++Models
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\
 ++Validations
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\validations\
+++ContatoClienteValidator.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\validations\contatoclientevalidator.cs
+++OfertanteCertificadoValidator.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\validations\ofertantecertificadovalidator.cs
+++ParceiroValidator.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\validations\parceirovalidator.cs
+++PropostaSolicitacaoValidator.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\validations\propostasolicitacaovalidator.cs
+++SolicitacaoDeServicoModelValidator.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\validations\solicitacaodeservicomodelvalidator.cs
 ++AppSettings.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\appsettings.cs
 ++ContatoClienteModel.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\contatoclientemodel.cs
-++ContratanteModel.cs
-++DiplomaModel.cs
+++ErrorResponse.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\errorresponse.cs
 ++Notificacao.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\notificacao.cs
-++OfertanteCurriculoModel.cs
-++OfertanteExperienciaModel.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\ofertanteexperienciamodel.cs
-++OfertanteModel.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\ofertantemodel.cs
-++OrdemDeServicoModel.cs
+++OfertanteCertificadoModel.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\ofertantecertificadomodel.cs
 ++ParceiroModel.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\parceiromodel.cs
+++PropostaSolicitacaoModel.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\propostasolicitacaomodel.cs
 ++RegisterUserModel.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\registerusermodel.cs
+++SolicitacaoDeServicoModel.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\solicitacaodeservicomodel.cs
+++SuccessResponse.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\successresponse.cs
 ++Notificacoes
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\notificacoes\
-++Notificador.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\notificacoes\notificador.cs
 ++Pages
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\pages\
 ++Repository
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\
+++ContatoClienteRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\contatoclienterepository.cs
+++EmailTemplateRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\emailtemplaterepository.cs
+++OfertanteCertificadoRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\ofertantecertificadorepository.cs
+++ParceiroRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\parceirorepository.cs
+++PropostaSolicitacaoRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\propostasolicitacaorepository.cs
+++Repository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\repository.cs
+++SolicitacaoServicoRepository.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\solicitacaoservicorepository.cs
 ++Services
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\
+++BaseService.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\baseservice.cs
+++ContatoClienteService.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\contatoclienteservice.cs
+++EmailService.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\emailservice.cs
+++ParceiroService.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\parceiroservice.cs
+++SolicitacaoDeServicoService.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\solicitacaodeservicoservice.cs
 ++appsettings.json
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\appsettings.json
 ++Program.cs
@@ -113,13 +178,61 @@ i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\li
 ++Startup.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\startup.cs
 ++Nenhuma dependência de serviço descoberta
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>864
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>862
 ++Analisadores
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:analisadores
 ++Estruturas
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:estruturas
 ++Pacotes
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:pacotes
+++AspNetCore.HealthChecks.MySql (5.0.1)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>888
+++AspNetCore.HealthChecks.UI (5.0.1)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>890
+++AspNetCore.HealthChecks.UI.Client (5.0.1)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>873
+++AspNetCore.HealthChecks.UI.Core (5.0.1)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>895
+++AspNetCore.HealthChecks.UI.MySql.Storage (5.0.1)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>875
+++AutoMapper.Extensions.Microsoft.DependencyInjection (8.1.1)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>880
+++Elmah.Io.AspNetCore (4.0.30)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>891
+++Elmah.Io.AspNetCore.HealthChecks (4.0.30)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>876
+++Elmah.Io.Extensions.Logging (4.0.24)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>896
+++FluentValidation (10.3.4)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>886
+++Microsoft.AspNet.Identity.Core (2.2.3)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>885
+++Microsoft.AspNetCore.Identity.EntityFrameworkCore (5.0.12)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>887
+++Microsoft.AspNetCore.Mvc.Versioning (5.0.0)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>874
+++Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer (5.0.0)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>878
+++Microsoft.EntityFrameworkCore (5.0.12)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>877
+++Microsoft.EntityFrameworkCore.Design (5.0.12)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>881
+++Microsoft.EntityFrameworkCore.SqlServer (5.0.12)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>879
+++Microsoft.EntityFrameworkCore.Tools (5.0.12)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>889
+++Microsoft.OpenApi (1.2.3)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>882
+++Microsoft.VisualStudio.Web.CodeGeneration.Design (5.0.2)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>893
+++Pomelo.EntityFrameworkCore.MySql (5.0.2)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>892
+++Swashbuckle.AspNetCore.Swagger (6.2.3)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>883
+++Swashbuckle.AspNetCore.SwaggerGen (6.2.3)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>884
+++Swashbuckle.AspNetCore.SwaggerUI (6.2.3)
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>894
 ++launchSettings.json
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\properties\launchsettings.json
 ++css
@@ -142,31 +255,16 @@ i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\li
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\enums\etipoparceiro.cs
 ++ETipoServico.cs
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\enums\etiposervico.cs
-++Database
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\infrastructure\database\
-++IContatoClienteRepository.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\icontatoclienterepository.cs
-++IContatoClienteService.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\icontatoclienteservice.cs
-++INotificador.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\inotificador.cs
-++IOrdemDeServicoRepository.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iordemdeservicorepository.cs
-++IOrdemDeServicoService.cs
-++IParceiroRepository.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iparceirorepository.cs
-++IParceiroService.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iparceiroservice.cs
-++IRepository.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\irepository.cs
-++IUser.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\iuser.cs
-++ApplicationIdentityDB
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationidentitydb\
-++20211121162256_inicio.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\20211121162256_inicio.cs
-++ApplicationDBContextModelSnapshot.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationdbcontextmodelsnapshot.cs
+++AspNetUser.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\extensions\aspnetuser.cs
+++ExceptionMiddlware.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\extensions\exceptionmiddlware.cs
+++20211121162330_inicio.Designer.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationidentitydb\20211121162330_inicio.designer.cs
+++20211129220552_inicio.Designer.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\20211129220552_inicio.designer.cs
+++Notificador.cs
+i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\notificacoes\notificador.cs
 ++Shared
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\pages\shared\
 ++_ViewImports.cshtml
@@ -179,21 +277,6 @@ i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\li
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\pages\index.cshtml
 ++Privacy.cshtml
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\pages\privacy.cshtml
-++ContatoClienteRepository.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\contatoclienterepository.cs
-++OrdemDeServicoRepository.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\ordemdeservicorepository.cs
-++ParceiroRepository.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\parceirorepository.cs
-++Repository.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\repository\repository.cs
-++BaseService.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\baseservice.cs
-++ContatoClienteService.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\contatoclienteservice.cs
-++OrdemDeServicoService.cs
-++ParceiroService.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\parceiroservice.cs
 ++appsettings.Development.json
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\appsettings.development.json
 ++appsettings.Production.json
@@ -218,54 +301,6 @@ i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\users\7150482\.nuget\packages\micros
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\microsoft.aspnetcore.app
 ++Microsoft.NETCore.App
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\microsoft.netcore.app
-++AspNetCore.HealthChecks.MySql (5.0.1)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>890
-++AspNetCore.HealthChecks.UI (5.0.1)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>892
-++AspNetCore.HealthChecks.UI.Client (5.0.1)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>875
-++AspNetCore.HealthChecks.UI.Core (5.0.1)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>897
-++AspNetCore.HealthChecks.UI.MySql.Storage (5.0.1)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>877
-++AutoMapper.Extensions.Microsoft.DependencyInjection (8.1.1)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>882
-++Elmah.Io.AspNetCore (4.0.30)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>893
-++Elmah.Io.AspNetCore.HealthChecks (4.0.30)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>878
-++Elmah.Io.Extensions.Logging (4.0.24)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>898
-++FluentValidation (10.3.4)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>888
-++Microsoft.AspNet.Identity.Core (2.2.3)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>887
-++Microsoft.AspNetCore.Identity.EntityFrameworkCore (5.0.12)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>889
-++Microsoft.AspNetCore.Mvc.Versioning (5.0.0)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>876
-++Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer (5.0.0)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>880
-++Microsoft.EntityFrameworkCore (5.0.12)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>879
-++Microsoft.EntityFrameworkCore.Design (5.0.12)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>883
-++Microsoft.EntityFrameworkCore.SqlServer (5.0.12)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>881
-++Microsoft.EntityFrameworkCore.Tools (5.0.12)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>891
-++Microsoft.OpenApi (1.2.3)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>884
-++Microsoft.VisualStudio.Web.CodeGeneration.Design (5.0.2)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>895
-++Pomelo.EntityFrameworkCore.MySql (5.0.2)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>894
-++Swashbuckle.AspNetCore.Swagger (6.2.3)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>885
-++Swashbuckle.AspNetCore.SwaggerGen (6.2.3)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>886
-++Swashbuckle.AspNetCore.SwaggerUI (6.2.3)
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:>896
 ++site.css
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\wwwroot\css\site.css
 ++site.js
@@ -278,16 +313,6 @@ i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\li
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\wwwroot\lib\jquery-validation\
 ++jquery-validation-unobtrusive
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\wwwroot\lib\jquery-validation-unobtrusive\
-++ApplicationDBContext.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\infrastructure\database\applicationdbcontext.cs
-++ApplicationIdentityDBContext.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\infrastructure\database\applicationidentitydbcontext.cs
-++20211121162330_inicio.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationidentitydb\20211121162330_inicio.cs
-++ApplicationIdentityDBContextModelSnapshot.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationidentitydb\applicationidentitydbcontextmodelsnapshot.cs
-++20211121162256_inicio.Designer.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\20211121162256_inicio.designer.cs
 ++_Layout.cshtml
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\pages\shared\_layout.cshtml
 ++_ValidationScriptsPartial.cshtml
@@ -311,8 +336,6 @@ i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\li
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\wwwroot\lib\jquery-validation\license.md
 ++jquery.validate.unobtrusive.js
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
-++20211121162330_inicio.Designer.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\migrations\applicationidentitydb\20211121162330_inicio.designer.cs
 ++jquery.js
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\wwwroot\lib\jquery\dist\jquery.js
 ++additional-methods.js
@@ -369,18 +392,3 @@ i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\li
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 ++bootstrap.bundle.min.js.map
 i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
-++ISolicitacaoDeServicoService.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\interfaces\isolicitacaodeservicoservice.cs
-++SolicitacaoDeServicoService.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\services\solicitacaodeservicoservice.cs
-++SolicitacaoDeServicoModel.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\solicitacaodeservicomodel.cs
-++PropostaSolicitacaoModel.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\propostasolicitacaomodel.cs
-++OfertanteCertificadoModel.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\ofertantecertificadomodel.cs
-++ParceiroValidation.cs
-++ParceiroValidator.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\validations\parceirovalidator.cs
-++OfertanteValidator.cs
-i:{156c8902-1fd9-41d7-903d-d73be612e55e}:c:\repository\linktecapi\linktec.api\linktec.api\models\validations\ofertantevalidator.cs

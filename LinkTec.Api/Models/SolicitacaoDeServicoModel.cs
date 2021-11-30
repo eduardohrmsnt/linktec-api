@@ -50,6 +50,7 @@ namespace LinkTec.Api.Models
         {
             var solicitacaoModel = new SolicitacaoDeServicoModel
             {
+                Id = solicitacao.Id,
                 DescricaoServico = solicitacao.DescricaoServico,
                 Enunciado = solicitacao.Enunciado,
                 FormaPagamentoAceita = solicitacao.FormaPagamentoAceita,
@@ -61,10 +62,15 @@ namespace LinkTec.Api.Models
 
             };
 
-
+            if(solicitacao.PropostasSolicitacao is not null)
             foreach(var proposta in solicitacao.PropostasSolicitacao)
             {
-                solicitacaoModel.PropostasSolicitacao.Add(new PropostaSolicitacaoModel { Horas = proposta.HoraProposta, ValorHora = proposta.ValorHora, OfertanteId = proposta.OfertanteId, SolicitacaoId = proposta.SolicitacaoId });
+                solicitacaoModel.PropostasSolicitacao.Add(new PropostaSolicitacaoModel { 
+                    Id = proposta.Id,
+                    Horas = proposta.HoraProposta,
+                    ValorHora = proposta.ValorHora,
+                    OfertanteId = proposta.OfertanteId,
+                    SolicitacaoId = proposta.SolicitacaoDeServicoId });
             }
 
             return solicitacaoModel;

@@ -42,7 +42,7 @@ namespace LinkTec.Api
 
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextPool<ApplicationDBContext>(options => options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
-            services.AddIdentityConfiguration(mySqlConnection);
+            services.AddIdentityConfiguration(mySqlConnection, Configuration);
             services.AddAutoMapper(typeof(Startup));
             services.AddRazorPages();
             services.AddApiConfig();

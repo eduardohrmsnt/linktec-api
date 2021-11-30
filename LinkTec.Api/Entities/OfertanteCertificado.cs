@@ -9,11 +9,6 @@ namespace LinkTec.Api.Entities
 
         public Guid ParceiroId { get; set; }
 
-        public byte[] Imagem { get; set; }
-
         public ETipoServico TipoServico { get; set; }
-
-        public Parceiro Ofertante { get; set; }
-        public Guid OfertanteId { get; set; }
     }
 }

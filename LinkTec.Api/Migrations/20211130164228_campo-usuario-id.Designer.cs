@@ -3,14 +3,16 @@ using System;
 using LinkTec.Api.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LinkTec.Api.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20211130164228_campo-usuario-id")]
+    partial class campousuarioid
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,6 +65,12 @@ namespace LinkTec.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<byte[]>("Imagem")
+                        .HasColumnType("longblob");
+
+                    b.Property<Guid>("OfertanteId")
+                        .HasColumnType("char(36)");
+
                     b.Property<Guid>("ParceiroId")
                         .HasColumnType("char(36)");
 
@@ -70,6 +78,8 @@ namespace LinkTec.Api.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OfertanteId");
 
                     b.HasIndex("ParceiroId");
 
@@ -190,11 +200,19 @@ namespace LinkTec.Api.Migrations
 
             modelBuilder.Entity("LinkTec.Api.Entities.OfertanteCertificado", b =>
                 {
+                    b.HasOne("LinkTec.Api.Entities.Parceiro", "Ofertante")
+                        .WithMany()
+                        .HasForeignKey("OfertanteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("LinkTec.Api.Entities.Parceiro", "Parceiro")
                         .WithMany()
                         .HasForeignKey("ParceiroId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Ofertante");
 
                     b.Navigation("Parceiro");
                 });

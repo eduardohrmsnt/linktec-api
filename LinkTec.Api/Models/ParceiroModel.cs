@@ -8,6 +8,8 @@ namespace LinkTec.Api.Models
     {
         public Guid Id { get; set; }
 
+        public Guid UsuarioId { get; set; }
+
         public string Nome { get; set; }
 
         public string Documento { get; set; }
@@ -20,16 +22,25 @@ namespace LinkTec.Api.Models
         {
             return new Parceiro
             {
+                UsuarioId = parceiro.UsuarioId,
                 Nome = parceiro.Nome,
                 Documento = parceiro.Documento,
                 FormaPagamento = parceiro.FormaPagamentoAceita,
-                TipoParceiro = parceiro.Ofertante is not null ? ETipoParceiro.Ofertante : ETipoParceiro.Contratante
+                TipoParceiro = parceiro.Ofertante is not null ? ETipoParceiro.Ofertante : ETipoParceiro.Contratante,
+                TipoDocumento = parceiro.Documento.Length > 11 ? ETipoDocumento.CNPJ : ETipoDocumento.CPF
             };
         }
 
         internal static ParceiroModel FromParceiroEntity(Parceiro parceiro)
         {
-            throw new NotImplementedException();
+            return new ParceiroModel
+            {
+                Id = parceiro.Id,
+                Nome = parceiro.Nome,
+                Documento = parceiro.Documento,
+                FormaPagamentoAceita = parceiro.FormaPagamento,
+                UsuarioId = parceiro.UsuarioId
+            };
         }
     }
 }

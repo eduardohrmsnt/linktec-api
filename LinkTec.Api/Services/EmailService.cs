@@ -33,9 +33,11 @@ namespace LinkTec.Api.Services
 
             var str = email.Corpo;
 
-            str.Replace("{PROPOSTAID}", proposta.Id.ToString());
-            str.Replace("{NOME}", proposta.SolicitacaoDeServico.Solicitante.Nome);
-            str.Replace("{EMAIL}", proposta.SolicitacaoDeServico.Solicitante.Email);
+            str = str.Replace("{SOLICITACAOID}", proposta.SolicitacaoDeServico.Id.ToString());
+            str = str.Replace("{NOME}", proposta.SolicitacaoDeServico.Solicitante.Nome);
+            str = str.Replace("{PROBLEMA}", proposta.SolicitacaoDeServico.Enunciado.ToString());
+            str = str.Replace("{DESCRICAOPROBLEMA}", proposta.SolicitacaoDeServico.DescricaoServico.ToString());
+            str = str.Replace("{EMAILSOLICITANTE}", proposta.SolicitacaoDeServico.Solicitante.Email);
 
             mailMessage.Subject = $"{email.Assunto}";
             mailMessage.IsBodyHtml = true;
@@ -52,8 +54,10 @@ namespace LinkTec.Api.Services
 
             var str = email.Corpo;
 
-            str.Replace("{PROPOSTAID}", proposta.Id.ToString());
-            str.Replace("{NOME}", proposta.SolicitacaoDeServico.Solicitante.Nome);
+            str = str.Replace("{SOLICITACAOID}", proposta.SolicitacaoDeServico.Id.ToString());
+            str = str.Replace("{NOME}", proposta.SolicitacaoDeServico.Solicitante.Nome);
+            str = str.Replace("{PROBLEMA}", proposta.SolicitacaoDeServico.Enunciado.ToString());
+            str = str.Replace("{DESCRICAOPROBLEMA}", proposta.SolicitacaoDeServico.DescricaoServico.ToString());
 
             mailMessage.Subject = $"{email.Assunto}";
             mailMessage.IsBodyHtml = true;
@@ -70,9 +74,10 @@ namespace LinkTec.Api.Services
 
             var str = email.Corpo;
 
-            str.Replace("{SOLICITACAOID}", solicitacao.Id.ToString());
-            str.Replace("{NOME}", solicitacao.Ofertante.Nome);
-            str.Replace("{EMAIL}", solicitacao.Ofertante.Email);
+            str = str.Replace("{SOLICITACAOID}", solicitacao.Id.ToString());
+            str = str.Replace("{NOME}", solicitacao.Solicitante.Nome);
+            str = str.Replace("{PROBLEMA}", solicitacao.Enunciado.ToString());
+            str = str.Replace("{DESCRICAOPROBLEMA}", solicitacao.DescricaoServico.ToString());
 
             mailMessage.Subject = $"{email.Assunto}";
             mailMessage.IsBodyHtml = true;
@@ -83,15 +88,21 @@ namespace LinkTec.Api.Services
 
         public async Task EmailSolicitacaoRecusada(SolicitacaoDeServico solicitacao, Parceiro parceiro)
         {
+
             var email = (await _emailTemplateRepository.Buscar(e => e.TipoEmail == ETipoEmail.SolicitacaoRecusada)).FirstOrDefault();
 
-            MailMessage mailMessage = new MailMessage(_usuario, parceiro.Email);
+            MailMessage mailMessage = new MailMessage();
+
+            mailMessage.From = new MailAddress(_usuario);
+            mailMessage.To.Add( new MailAddress(parceiro.Email));
+
 
             var str = email.Corpo;
 
-            str.Replace("{SOLICITACAOID}", solicitacao.Id.ToString());
-            str.Replace("{NOME}", solicitacao.Ofertante.Nome);
-            str.Replace("{EMAIL}", solicitacao.Ofertante.Email);
+            str = str.Replace("{SOLICITACAOID}", solicitacao.Id.ToString());
+            str = str.Replace("{NOME}", solicitacao.Solicitante.Nome);
+            str = str.Replace("{PROBLEMA}", solicitacao.Enunciado.ToString());
+            str = str.Replace("{DESCRICAOPROBLEMA}", solicitacao.DescricaoServico.ToString());
 
             mailMessage.Subject = $"{email.Assunto}";
             mailMessage.IsBodyHtml = true;
@@ -104,12 +115,16 @@ namespace LinkTec.Api.Services
         {
             try
             {
+                mailMessage.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                mailMessage.Priority = MailPriority.High;
+                mailMessage.SubjectEncoding = System.Text.Encoding.UTF8;
+                mailMessage.BodyEncoding = System.Text.Encoding.UTF8;
 
-                mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
-                mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
+                SmtpClient smtpClient = new SmtpClient();
 
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = new NetworkCredential(_usuario, _senha);
 

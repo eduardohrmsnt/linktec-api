@@ -7,9 +7,6 @@ namespace LinkTec.Api.Models
     public class ContatoClienteModel
     {
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
-        public long Id { get; set; }
-
-        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]

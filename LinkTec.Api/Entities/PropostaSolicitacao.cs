@@ -6,7 +6,7 @@ namespace LinkTec.Api.Entities
     {
         public virtual SolicitacaoDeServico SolicitacaoDeServico { get; set; }
 
-        public Guid SolicitacaoId { get; set; }
+        public Guid SolicitacaoDeServicoId { get; set; }
 
         public virtual Parceiro Ofertante { get; set; }
 

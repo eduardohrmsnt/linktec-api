@@ -11,12 +11,14 @@ using LinkTec.Api.Interfaces;
 using LinkTec.Api.Models;
 using Microsoft.AspNetCore.Http;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LinkTec.Api.Controllers
 {
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize]
     public class ParceirosController : MainController
     {
         private readonly IParceiroService _parceiroService;
@@ -34,6 +36,14 @@ namespace LinkTec.Api.Controllers
             return CustomResponse(await _parceiroService.ObterParceiroPorId(id));
         }
 
+        [HttpGet("ofertantes")]
+        [ProducesResponseType(typeof(ParceiroModel), 200)]
+        [ProducesResponseType(typeof(ErrorResponse), 400)]
+        public async Task<IActionResult> ObterParceirosOfertantes(Guid id)
+        {
+            return CustomResponse(await _parceiroService.ObterParceiroPorId(id));
+        }
+
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(typeof(ErrorResponse), 400)]
@@ -47,7 +57,7 @@ namespace LinkTec.Api.Controllers
         [HttpPost("edit")]
         [ProducesResponseType(200)]
         [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> EditarParceiro(ParceiroModel parceiro, Guid parceiroId)
+        public async Task<IActionResult> EditarParceiro(ParceiroModel parceiro, [FromQuery]Guid parceiroId)
         {
             await _parceiroService.EditarParceiro(parceiro, parceiroId);
 

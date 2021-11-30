@@ -54,9 +54,9 @@ namespace LinkTec.Api.Controllers
         [HttpPost("aceitar")]
         [ProducesResponseType(200)]
         [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> AceitarSolicitacaoDeServico([FromBody]Guid solicitacaoServicoId)
+        public async Task<IActionResult> AceitarSolicitacaoDeServico([FromQuery]Guid solicitacaoId)
         {
-            await _solicitacaoDeServicoService.AceitarSolicitacaoDeServico(solicitacaoServicoId);
+            await _solicitacaoDeServicoService.AceitarSolicitacaoDeServico(solicitacaoId);
 
             return CustomResponse();
         }
@@ -64,9 +64,9 @@ namespace LinkTec.Api.Controllers
         [HttpPost("recusar")]
         [ProducesResponseType(200)]
         [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> RecusarSolicitacaoDeServico([FromBody] Guid solicitacaoServicoId)
+        public async Task<IActionResult> RecusarSolicitacaoDeServico([FromQuery] Guid solicitacaoId)
         {
-            await _solicitacaoDeServicoService.RecusarSolicitacaoDeServico(solicitacaoServicoId);
+            await _solicitacaoDeServicoService.RecusarSolicitacaoDeServico(solicitacaoId);
 
             return CustomResponse();
         }
@@ -75,7 +75,7 @@ namespace LinkTec.Api.Controllers
         [HttpPost("proposta/aceitar")]
         [ProducesResponseType(200)]
         [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> AceitarPropostaSolicitacaoDeServico([FromBody] Guid propostaId)
+        public async Task<IActionResult> AceitarPropostaSolicitacaoDeServico([FromQuery] Guid propostaId)
         {
             await _solicitacaoDeServicoService.AceitarPropostaSolicitacaoDeServico(propostaId);
 
@@ -85,7 +85,7 @@ namespace LinkTec.Api.Controllers
         [HttpPost("proposta/recusar")]
         [ProducesResponseType(200)]
         [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> RecusarPropostaSolicitacaoDeServico([FromBody] Guid propostaId)
+        public async Task<IActionResult> RecusarPropostaSolicitacaoDeServico([FromQuery] Guid propostaId)
         {
             await _solicitacaoDeServicoService.RecusarPropostaSolicitacaoDeServico(propostaId);
 

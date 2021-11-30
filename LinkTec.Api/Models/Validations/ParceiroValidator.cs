@@ -13,7 +13,7 @@ namespace LinkTec.Api.Models.Validations
 
             RuleFor(p => p.FormaPagamentoAceita).NotEmpty().WithMessage("Pelo menos uma forma de pagamento deve ser escolhida");
 
-            RuleFor(p => p.Documento).MinimumLength(14).MaximumLength(11).WithMessage("O campo Documento nao possui os campos necessarios para cadastro.");
+            RuleFor(p => p.Documento).MinimumLength(11).MaximumLength(14).WithMessage("O campo Documento nao possui os campos necessarios para cadastro.");
 
         }
     }

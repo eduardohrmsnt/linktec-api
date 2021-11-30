@@ -6,6 +6,8 @@ namespace LinkTec.Api.Models
 {
     public class PropostaSolicitacaoModel
     {
+        public Guid Id { get; set; }
+
         public Guid SolicitacaoId { get; set; }
 
         public Guid OfertanteId { get; set; }
@@ -14,9 +16,16 @@ namespace LinkTec.Api.Models
 
         public decimal Horas { get; set; }
 
+
         internal static PropostaSolicitacao ToPropostaSolicitacaoEntity(PropostaSolicitacaoModel propostaSolicitacao)
         {
-            throw new NotImplementedException();
+            return new PropostaSolicitacao
+            {
+                HoraProposta = propostaSolicitacao.Horas,
+                ValorHora = propostaSolicitacao.ValorHora,
+                SolicitacaoDeServicoId = propostaSolicitacao.SolicitacaoId,
+                OfertanteId = propostaSolicitacao.OfertanteId,
+            };
         }
     }
 }

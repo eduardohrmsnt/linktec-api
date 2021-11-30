@@ -4,26 +4,30 @@ using LinkTec.Api.Models;
 using LinkTec.Api.Models.Validations;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LinkTec.Api.Services
 {
     public class SolicitacaoDeServicoService : ISolicitacaoDeServicoService
     {
-        private  INotificador _notificador { get; set; }
+        private INotificador _notificador { get; set; }
         private ISolicitacaoServicoRepository _solicitacaoServicoRepository { get; set; }
         private IPropostaSolicitacaoRepository _propostaSolicitacaoRepository { get; set; }
-        private IEmailTemplateRepository _emailTemplateRepository { get; set; }
+        private IParceiroRepository _parceiroRepository { get; set; }
+        private IEmailService _emailService { get; set; }
 
         public SolicitacaoDeServicoService(INotificador notificador,
             ISolicitacaoServicoRepository solicitacaoServicoRepository,
-            IEmailTemplateRepository emailTemplateRepository,
-            IPropostaSolicitacaoRepository propostaSolicitacaoRepository)
+            IPropostaSolicitacaoRepository propostaSolicitacaoRepository,
+            IEmailService emailService,
+            IParceiroRepository parceiroRepository)
         {
             _notificador = notificador;
-            _emailTemplateRepository = emailTemplateRepository;
             _solicitacaoServicoRepository = solicitacaoServicoRepository;
             _propostaSolicitacaoRepository = propostaSolicitacaoRepository;
+            _emailService = emailService;
+            _parceiroRepository = parceiroRepository;
         }
 
         public async Task InserirSolicitacaoDeServico(SolicitacaoDeServicoModel ordemDeServico)
@@ -40,6 +44,8 @@ namespace LinkTec.Api.Services
                 return;
             }
 
+            ordemDeServico.Ativa = true;
+
             await _solicitacaoServicoRepository.Adicionar(SolicitacaoDeServicoModel.ToSolicitacaoDeServicoEntity(ordemDeServico));
         }
 
@@ -50,20 +56,29 @@ namespace LinkTec.Api.Services
             var solicitacoes = new List<SolicitacaoDeServico>();
 
             if (solicitanteId is not null)
-                solicitacoes.AddRange(await _solicitacaoServicoRepository.Buscar(p => p.SolicitanteId == solicitanteId));
+                solicitacoes.AddRange(await _solicitacaoServicoRepository.BuscarComProposta(p => p.SolicitanteId == solicitanteId));
 
             if (ofertanteId is not null)
-                solicitacoes.AddRange(await _solicitacaoServicoRepository.Buscar(p => p.OfertanteId == ofertanteId));
+                if (!solicitacoes.Any())
+                    solicitacoes.AddRange(await _solicitacaoServicoRepository.BuscarComProposta(p => p.OfertanteId == ofertanteId));
+                else
+                    solicitacoes = solicitacoes.Where(p => p.OfertanteId == ofertanteId).ToList();
 
             if (id is not null)
-                solicitacoes.AddRange(await _solicitacaoServicoRepository.Buscar(p => p.Id == id));
+                if (!solicitacoes.Any())
+                    solicitacoes.AddRange(await _solicitacaoServicoRepository.BuscarComProposta(p => p.Id == id));
+                else
+                    solicitacoes = solicitacoes.Where(p => p.OfertanteId == ofertanteId).ToList();
 
 
             if (ativa is not null)
-                solicitacoes.AddRange(await _solicitacaoServicoRepository.Buscar(p => p.Ativa == ativa));
+                if (!solicitacoes.Any())
+                    solicitacoes.AddRange(await _solicitacaoServicoRepository.BuscarComProposta(p => p.Ativa == ativa));
+                else
+                    solicitacoes = solicitacoes.Where(p => p.OfertanteId == ofertanteId).ToList();
 
 
-            foreach(var solicitacao in solicitacoes)
+            foreach (var solicitacao in solicitacoes)
             {
                 retorno.Add(SolicitacaoDeServicoModel.FromSolicitacaoDeServicoEntity(solicitacao));
             }
@@ -86,24 +101,117 @@ namespace LinkTec.Api.Services
             await _propostaSolicitacaoRepository.Adicionar(PropostaSolicitacaoModel.ToPropostaSolicitacaoEntity(propostaSolicitacao));
         }
 
-        public Task RecusarSolicitacaoDeServico(Guid solicitacaoServicoId)
+        public async Task RecusarSolicitacaoDeServico(Guid solicitacaoServicoId)
         {
-            throw new NotImplementedException();
+            var solicitacaoServico = await _solicitacaoServicoRepository.ObterPorId(solicitacaoServicoId);
+
+            if (solicitacaoServico == null)
+            {
+                _notificador.Handle(new Notificacao("Solicitacao de serviço não encontrada."));
+                return;
+            }
+
+            solicitacaoServico.Recusada = true;
+
+
+
+            await _solicitacaoServicoRepository.Atualizar(solicitacaoServico);
+
+            solicitacaoServico.Ofertante = await _parceiroRepository.ObterPorId((Guid)solicitacaoServico.OfertanteId);
+
+            var parceiro = await _parceiroRepository.ObterPorId(solicitacaoServico.SolicitanteId);
+
+            if (parceiro == null)
+            {
+                _notificador.Handle(new Notificacao("Parceiro não encontrado."));
+                return;
+            }
+
+            await _emailService.EmailSolicitacaoRecusada(solicitacaoServico, parceiro);
+
         }
 
-        public Task AceitarSolicitacaoDeServico(Guid solicitacaoServicoId)
+        public async Task AceitarSolicitacaoDeServico(Guid solicitacaoServicoId)
         {
-            throw new NotImplementedException();
+            var solicitacaoServico = await _solicitacaoServicoRepository.ObterPorId(solicitacaoServicoId);
+
+            if (solicitacaoServico == null)
+            {
+                _notificador.Handle(new Notificacao("Solicitacao de serviço não encontrada."));
+                return;
+            }
+
+            solicitacaoServico.Aceita = true;
+
+            await _solicitacaoServicoRepository.Atualizar(solicitacaoServico);
+
+            solicitacaoServico.Ofertante = await _parceiroRepository.ObterPorId((Guid)solicitacaoServico.OfertanteId);
+
+
+            var parceiro = await _parceiroRepository.ObterPorId(solicitacaoServico.SolicitanteId);
+
+            if (parceiro == null)
+            {
+                _notificador.Handle(new Notificacao("Parceiro não encontrado."));
+                return;
+            }
+
+            await _emailService.EmailSolicitacaoAceita(solicitacaoServico, parceiro);
+
         }
 
-        public Task RecusarPropostaSolicitacaoDeServico(Guid propostaId)
+        public async Task RecusarPropostaSolicitacaoDeServico(Guid propostaId)
         {
-            throw new NotImplementedException();
+            var propostaSolicitacao = await _propostaSolicitacaoRepository.ObterPorId(propostaId);
+
+            if (propostaSolicitacao == null)
+            {
+                _notificador.Handle(new Notificacao("Solicitacao de serviço não encontrada."));
+                return;
+            }
+
+            propostaSolicitacao.Recusada = true;
+
+            await _propostaSolicitacaoRepository.Atualizar(propostaSolicitacao);
+
+            var parceiro = await _parceiroRepository.ObterPorId(propostaSolicitacao.OfertanteId);
+
+            if (parceiro == null)
+            {
+                _notificador.Handle(new Notificacao("Parceiro não encontrado."));
+                return;
+            }
+
+            await _emailService.EmailPropostaRecusada(propostaSolicitacao, parceiro);
         }
 
-        public Task AceitarPropostaSolicitacaoDeServico(Guid propostaId)
+        public async Task AceitarPropostaSolicitacaoDeServico(Guid propostaId)
         {
-            throw new NotImplementedException();
+            var propostaSolicitacao = await _propostaSolicitacaoRepository.ObterPorId(propostaId);
+
+            if (propostaSolicitacao == null)
+            {
+                _notificador.Handle(new Notificacao("Solicitacao de serviço não encontrada."));
+                return;
+            }
+
+            propostaSolicitacao.Aceitada = true;
+
+            await _propostaSolicitacaoRepository.Atualizar(propostaSolicitacao);
+
+            var solicitacaoDeServico = await _solicitacaoServicoRepository.ObterPorId(propostaSolicitacao.SolicitacaoDeServicoId);
+
+            solicitacaoDeServico.Ativa = false;
+
+            var parceiro = await _parceiroRepository.ObterPorId(propostaSolicitacao.OfertanteId);
+
+            if (parceiro == null)
+            {
+                _notificador.Handle(new Notificacao("Parceiro não encontrado."));
+                return;
+            }
+
+            await _emailService.EmailPropostaAceita(propostaSolicitacao, parceiro);
         }
     }
 }

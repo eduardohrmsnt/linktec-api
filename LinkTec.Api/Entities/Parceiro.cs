@@ -1,4 +1,5 @@
 ﻿using LinkTec.Api.Enums;
+using System;
 using System.Net.Mail;
 
 namespace LinkTec.Api.Entities
@@ -15,5 +16,6 @@ namespace LinkTec.Api.Entities
 
         public EFormaPagamento FormaPagamento { get; set; }
         public string Email { get; internal set; }
+        public Guid UsuarioId { get; internal set; }
     }
 }
