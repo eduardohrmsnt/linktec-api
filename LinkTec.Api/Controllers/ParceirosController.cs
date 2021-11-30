@@ -39,9 +39,9 @@ namespace LinkTec.Api.Controllers
         [HttpGet("ofertantes")]
         [ProducesResponseType(typeof(ParceiroModel), 200)]
         [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> ObterParceirosOfertantes(Guid id)
+        public async Task<IActionResult> ObterParceirosOfertantes()
         {
-            return CustomResponse(await _parceiroService.ObterParceiroPorId(id));
+            return CustomResponse(await _parceiroService.ObterParceirosOfertantes());
         }
 
         [HttpPost]
